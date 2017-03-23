@@ -1,0 +1,15 @@
+default: &default
+  region: eu-west-1
+  bucket: ben-olev-dev
+
+development:
+  <<: *default
+  folder: images/dev/fromadmin/
+
+test:
+  <<: *default
+  folder: images/test/fromadmin/
+
+production:
+  <<: *default
+  folder: images_prod/fromadmin/

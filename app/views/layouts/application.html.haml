@@ -1,0 +1,57 @@
+- content_for :head do
+  = stylesheet_link_tag 'application', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+
+- content_for :page_title do
+  GOV.UK 
+
+
+- content_for :global_header_text do
+  GOV.UK
+
+- content_for :homepage_url do
+  https://www.gov.uk/
+
+- content_for :footer_support_links do
+  %h2.visually-hidden Support links
+  %ul
+    %li
+      = link_to "Cookie Policy", target: "_blank"
+    %li
+      = link_to "Terms and Conditions", target: "_blank"
+    %li
+      = link_to "Privacy Policy", target: "_blank"
+
+- content_for :header_class do
+  with-proposition
+
+-# Uncomment if you want to use the proposition menu
+-#- content_for :header_class do
+-# with-proposition
+- content_for :proposition_header do
+  .header-proposition
+    .content
+      %nav{id: "proposition-menu"}
+        %a{id: "proposition-name", href: root_path }
+
+- content_for :content do
+  %main{ id: "content", role: "main"}
+    .phase-banner
+      %p
+        %strong.phase-tag ALPHA
+        %span
+          This is a new service – your
+          %a{ href:"#"} feedback
+          will help us to improve it.
+
+      .userBar{ style: "text-align: right"}
+        - current_action = action_name
+
+
+
+    = yield
+
+
+
+= render template: 'layouts/govuk_template'

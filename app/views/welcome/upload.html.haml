@@ -1,0 +1,14 @@
+%h1.heading-large Upload a file to S3
+
+= form_tag welcome_upload_post_path, multipart: true do
+
+  .form-group
+
+    = label_tag "file-input", class: "form-label", for: "file-input", multipart: true do
+      Upload a file
+    = file_field_tag 'files[]', multiple: true
+         
+
+  .form-group
+    %p= submit_tag 'Upload', class: 'button'
+
